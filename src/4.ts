@@ -2,29 +2,28 @@
 class Key {
     constructor(private signature: number) { }
   
-    getSignature() {
+    getSignature(): number {
         return this.signature
     }
 }
 
-// interface IPerson {
-//     key:
-// }
+
 class Person  {
-    private key;
-    constructor(ObjectKey) {
-     this.key = ObjectKey
-    }
-    getKey() {
-        return this.key.signature
+    constructor(private key: Key) {}
+    
+    getKey(): Key {
+        return this.key
     }
 }
 
 
 abstract class House {
-  public tenants: object[]
-constructor(public door: boolean, private key: object){}
-    comeIn(person: object) {
+    public tenants: Person[] = []
+    public door: boolean = false
+   
+    constructor(public key: Key) { }
+    
+    comeIn(person: Person): void {
     if (this.door) {
         this.tenants.push(person)
     }
@@ -34,18 +33,16 @@ constructor(public door: boolean, private key: object){}
 }
 
 class MyHouse extends House {
-    constructor(key: object) {
-    super(false, key)
-    }
-    
-    openDoor(userKey) {
-        if (userKey === key.getSignature()) {
+ 
+    openDoor(userKey: Key): boolean {
+        console.log(this)
+        if (userKey.getSignature() === this.key.getSignature()) {
               console.log('Двері відчинені.');
-           return true 
+           return this.door = true
            
         }
           console.log('Двері зачинені.');
-        return false
+        return this.door = false
     }
 } 
 const key = new Key(Math.random())
