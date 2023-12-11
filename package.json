@@ -1,11 +1,25 @@
 {
   "name": "typescript-homework-module-3",
   "version": "1.0.0",
-  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "typescript": "^5.1.5"
-  }
+  },
+  "scripts": {
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.1"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pro100D/goit-typescript-hw-03.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pro100D/goit-typescript-hw-03/issues"
+  },
+  "homepage": "https://github.com/Pro100D/goit-typescript-hw-03#readme"
 }
